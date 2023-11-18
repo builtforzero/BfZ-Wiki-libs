@@ -8,7 +8,7 @@ $.fn.onlyUnique = (value, index, array) ->
   return array.indexOf(value) == index
 
 #Helper to format dates
-formatDate = (dateStr) ->
+$.fn.formatDate = (dateStr) ->
   return (dateStr.getMonth() + 1) + '/' + dateStr.getDate() + '/' + dateStr.getFullYear()
 
 #Helper to validate URLs

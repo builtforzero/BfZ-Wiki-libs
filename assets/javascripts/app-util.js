@@ -9,7 +9,7 @@
     return array.indexOf(value) === index;
   };
 
-  formatDate = function(dateStr) {
+  $.fn.formatDate = function(dateStr) {
     return (dateStr.getMonth() + 1) + '/' + dateStr.getDate() + '/' + dateStr.getFullYear();
   };
 
