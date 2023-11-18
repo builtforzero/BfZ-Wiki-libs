@@ -1,0 +1,684 @@
+body {
+  font-family: "Raleway";
+}
+
+.clear {
+	clear: both;
+}
+
+h3 {
+  font-size: 22px;
+  margin: 0 0 5px;
+  font-size: 22px;
+  line-height: 1.2em;
+  font-weight: bold;
+}
+
+
+.button {
+  float: right;
+  font-family: "Asap Condensed"; 
+  font-weight: bold;
+  letter-spacing: .5px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 8px;
+  color: white;
+  background: #53B2E5;
+  box-shadow:  -3px 3px 0 0 rgba(65,146,198,1);
+}
+
+.button:hover {
+  background: rgba(65,146,198,1);
+  box-shadow:  -3px 3px 0 0 #53B2E5;
+}
+
+.instructions {
+  font-family: "Raleway";
+  font-size: 14px;
+  text-align: right;
+  margin-right: 240px;
+  margin-bottom: 30px
+}
+
+.instructions.event-cal-view {
+  margin-right: 215px;
+}
+
+.instructions:after {
+  font-family: "Wingdings 3";
+  content: "g";
+  margin-left: 5px;
+}
+
+/* Filters */
+
+#filters-wrapper {
+  margin-bottom: 20px;
+}
+
+
+#tags {
+
+  font-size: 15px;
+  line-height: 1.7em;
+  padding: 0 3px;
+}
+
+.ui-menu {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  list-style: none;
+  margin-left: -10px;
+}
+
+.ui-menu-item {
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.7em;
+}
+
+.tag-clear {
+
+  font-size: 15px;
+  line-height: 1.7em;
+}
+
+.ui-helper-hidden-accessible {
+  display: none !important;
+}
+
+.filters-date-range label { 
+  line-height: 26px;
+}
+
+
+#event-search-filters input {
+  padding: 0px 18px 0px 18px;
+  font-family: "Raleway";
+  font-size: 16px;
+  line-height: 3;
+  border: 1px solid #4192C6;
+}
+
+#filter-date-all {
+  display: none;
+  font-family: "Raleway";
+  font-size: 16px;
+  line-height: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.filter-date-btns {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-left: 8px;
+  background: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  color: #7A7A9D;
+}
+
+.datepicker {
+  width: 140px;
+}
+
+.ui-datepicker { 
+  display: none;
+  margin-top: -1px;
+  background: white;
+  padding: 5px;
+  font-family: "Raleway";
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
+
+.ui-datepicker-title {
+  font-size: 11px;
+  text-align: center;
+}
+
+.ui-datepicker-next {
+  display: block;
+  float: right;
+  text-align: right;
+}
+
+.ui-datepicker-next,
+.ui-datepicker-prev {
+  color: #4192C6;
+  cursor: pointer;
+}
+
+.ui-datepicker-calendar a {
+  color: gray;
+}
+
+.ui-datepicker-calendar td {
+  font-size: 15px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block !important;
+  width: 40px;
+  height: 24px;
+}
+
+.toggle-label {
+  position: absolute;
+  right: 3px;
+  bottom: 2px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+
+.toggle-wrapper {
+  position: relative;
+  display: inline-block;
+  font-weight: normal;
+  padding-left: 15px;
+  padding-top: 15px;
+  width: 210px;
+}
+
+#view-options {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#view-toggle.button {
+  background: #a50a51;
+  box-shadow:  -3px 3px 0 0 rgba(218,102,123,1);
+}
+
+#view-toggle.button:hover {
+  background: rgba(218,102,123,1);
+  box-shadow:  -3px 3px 0 0 #a50a51;
+}
+
+#view-toggle.button .list {
+  display: inline-block;
+}
+
+#view-toggle.button .cal {
+  display: none;
+}
+
+#event-search-filters {
+  position: relative;
+  padding: 30px 0 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#event-search-filters .filter-wrapper {
+  display: inline-block;
+}
+
+#event-search-filters label {
+  display: block;
+  font-family: "Raleway";
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #98979B;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-container {
+  font-family: "Raleway";
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  margin-top: 10px;
+}
+
+.select2-container--default {
+  width: auto !important;
+}
+
+.select2-selection__arrow {
+  display: none;
+}
+
+.select2-container--open .select2-dropdown--below {
+  border-top: 1px solid #aaa;
+  margin-top: -6px;
+  min-width: 200px;
+  width: auto !important;
+}
+
+.select2-container--default .select2-selection--single,
+#event-search-filters select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+
+  display: inline-block;
+  min-width: 200px;
+  height: 50px;
+  margin: 5px 2px 5px 0px;
+  padding: 0px 34px 0px 18px;
+  font-family: "Raleway";
+  font-size: 16px;
+  line-height: 1.75;
+  border-radius: 0;
+  color: #333;
+  background-color: #ffffff;
+  border: 1px solid #4192C6;
+  -ms-word-break: normal;
+  word-break: normal;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 97% 12px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 0;
+  font-weight: normal;
+}
+
+.ms-options-wrap > button:after {
+  right: 10px;
+  border-top-color: black;
+}
+
+.ms-options-wrap > .ms-options {
+  width: 460px;
+}
+
+/* A&M Tools */
+
+.project.term-wrapper {
+  margin-bottom: 20px;
+}
+
+.project-title {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1.4em;
+  font-weight: bold;
+}
+
+.project-title a {
+  color: #38b6ff;
+  text-decoration: none;
+}
+
+.project-description {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+.project-preview {
+  display: none;
+  position: absolute;
+  left: 100%;
+  margin-left: 20px;
+  margin-top: -38px;
+  height: 226px;
+  width: 366px;
+  padding: 3px;
+  z-index: 2000;
+  background: #98979B;
+}
+
+.project-title:hover .project-preview { 
+  display: block;
+}
+
+.left-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:10px solid #98979B; 
+}
+
+.project-preview .left-arrow {
+
+  position: absolute;
+  top: 15px;
+  left: 0;
+  margin-left: -8px;
+}
+
+.project-preview  iframe {
+  background: #98979B;
+  border: 0;
+  margin: 3px;
+}
+
+.project-preview.align-bottom  {
+
+  margin-top: -220px;
+}
+
+.project-preview.align-bottom  .left-arrow {
+
+  top: auto;
+  bottom: 15px;
+}
+
+
+
+/* Dictionary */
+#az-filter {
+  margin: 10px 0;
+}
+
+.az-filter {
+  padding-right: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.az-filter.selected {
+  font-weight: bold;
+}
+
+.az-filter.disabled {
+  font-color: disabled;
+}
+
+
+/* Events */
+
+#event-list-view,
+#event-cal-view  {
+  position: relative;
+  font-family: "Raleway";
+  font-size: 14px;
+  background: white;
+}
+
+#event-list-view {
+  padding: 20px;
+}
+
+.event-list-view {
+}
+
+.event-cal-view {
+  display: none;
+}
+
+.gc-calendar .gc-calendar-header .gc-calendar-month-year,
+.gc-calendar table.calendar th,
+.gc-calendar table.calendar td .day-number {
+  font-family: "Raleway";
+}
+
+.gc-calendar table.calendar a {
+  display: inline;
+}
+
+.gc-calendar .event {
+  position: relative;
+}
+
+.gc-calendar .gc-event {
+  width: 100%;
+  margin-left: -10px;
+  height: auto;
+  cursor: pointer;
+  background: #C5E0EE;
+  font-family: "Raleway";
+  font-size: 13px;
+  color:  transparent;
+  padding: 2px;
+}
+
+.gc-calendar .gc-event.dayofweek1 {
+  color: #787878;
+}
+
+.gc-calendar .gc-event.day1 {
+  position: relative;
+  float: none;
+  overflow: inherit;
+  display: block;
+  height: auto;
+  background: transparent;
+  color: black;
+  background: #C5E0EE;
+  margin-left: 0;
+}
+
+.gc-calendar .xxxgc-event.external {
+  margin-top: -43px !important;
+  height: 1px;
+  color:  transparent;
+  display: none !important;
+}
+
+.gc-calendar .gc-event.selected  {
+  background: #A5D5EC;
+}
+
+.event-detail {
+  font-family: "Raleway";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;;
+  margin-left: -230px;
+  width: 460px;
+  max-height: 400px;
+  background: #047EAF;
+  color: white;
+  padding: 18px;
+  z-index: 1000;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.event-detail .event-date {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.event-detail .event-name {
+  font-size: 20px;
+}
+
+.event-detail .event-description { 
+  font-size: 14px;
+}
+
+.event-detail .event-description .dt {
+  float: right;
+  width: 48%;
+  margin-bottom: 12px;
+}
+
+.event-detail .event-description .dt a {
+  color: white;
+}
+
+.event-detail .event-description .dt:nth-child(odd) {
+  float: left;
+  clear: both;
+}
+
+.event-detail .event-description .dt.notes {
+  clear: both;
+  width: 100%;
+}
+
+.event-detail .event-description .dt label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 2px;
+} 
+
+.event-detail .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: #53B2E5;
+  cursor: pointer;
+}
+
+.event-detail .close::before,
+.event-detail .close::after  {
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  content: " ";
+  display: block;
+  width: 2px;
+  height: 16px;
+  background: white;
+}
+
+.event-detail .close::before {
+  transform: rotate(45deg);
+}
+
+.event-detail .close::after {
+  transform: rotate(-45deg);
+}
+
+.loading {
+  margin-left: 20px;
+}
+
+#no-events {
+  display: none;
+}
+
+article.event-listing { 
+  line-height: 1.4em;
+  padding: 30px 0;
+  border-bottom: 1px solid gray;
+}
+
+article.event-listing:last-child { 
+  border-bottom: 0px solid gray;
+}
+
+.event-listing-date {
+  position: relative;
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+  font-size: 16px;
+  line-height: 1.3em;
+}
+
+.event-listing-details {
+  float: left;
+  width: 620px;
+}
+
+h3.event-listing-title {
+  float: left;
+  position: relative;
+  margin: 0 0 5px;
+  font-size: 22px;
+  line-height: 1.2em;
+  font-weight: bold;
+}
+
+.tbd h3.event-listing-title:after {
+  content: '*tbd';
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-left: -39px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 15px;
+  text-transform: uppercase;
+  background: #fd8109;
+  color: white;
+  padding: 3px 3px;
+}
+
+.event-listing-copy.left {
+  float: left;
+  width: 50%;
+  margin-right: 5%;
+}
+
+.event-listing-copy.right {
+  float: left;  
+  width: 44%;
+  font-weight: 500;
+}
+
+.event-listing-copy.clear {
+  clear: both;
+}
+
+.event-listing-copy .label {
+  color: #98979B;
+  padding-right: 5px;
+}
+

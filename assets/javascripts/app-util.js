@@ -1,5 +1,5 @@
 (function() {
-  var $, $body, formatDate;
+  var $, $body;
 
   $ = jQuery;
 
