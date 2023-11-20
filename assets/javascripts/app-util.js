@@ -56,11 +56,17 @@
         ]);
       }
     });
+    $('#search-term').on('blur', function() {
+      if ($(this).val() === '') {
+        $('.project-cat').show();
+        return $('.term-wrapper').show();
+      }
+    });
     $('.tag-clear').on('click', function() {
       $search.autocomplete("search", "");
       $('.project-cat').show();
       $('.term-wrapper').show();
-      return $('#tags').val('');
+      return $('#search-term').val('');
     });
     return $("#az-filter").initLetterSelector();
   };

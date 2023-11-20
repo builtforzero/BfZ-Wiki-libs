@@ -359,11 +359,15 @@ input:checked + .slider:before {
   width: 70%;
 }
 
+ .project-cat {
+  margin-bottom: 35px;
+}
+
 .project.term-wrapper {
   margin-bottom: 20px;
 }
 
-.project-title {
+.project .title {
   position: relative;
   display: inline-block;
   font-size: 18px;
@@ -371,14 +375,20 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
-.project-title a {
+.project .title a {
   color: #38b6ff;
   text-decoration: none;
 }
 
-.project-description {
+.project .description {
   margin: 0;
   line-height: 1.5em;
+}
+
+.project .keywords {
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .project-preview {
@@ -430,8 +440,6 @@ input:checked + .slider:before {
   top: auto;
   bottom: 15px;
 }
-
-
 
 /* Dictionary */
 #az-filter {

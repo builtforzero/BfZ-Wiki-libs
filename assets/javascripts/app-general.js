@@ -33,7 +33,7 @@
           return $("<a href='" + $row.link2 + "'>" + $row.link2 + "</a>").appendTo($link);
         }
       });
-      $("#tags").initSearchBox(allterms);
+      $("#search-term").initSearchBox(allterms);
       return $("#az-filter").initLetterSelector();
     });
   };
@@ -46,8 +46,9 @@
       allslugs = [];
       allcats = [];
       $.each(data, function(index, proj) {
-        var $img, $imgURL, $preview, $row, $title, classes, i, j, len, len1, r, ref, ref1, s, slug;
+        var $row, $title, classes, i, j, keywords, len, len1, r, ref, ref1, s, slug;
         classes = 'project term-wrapper';
+        keywords = '';
         ref = ["cat", "subcat", "datapoints", "tech"];
         for (i = 0, len = ref.length; i < len; i++) {
           r = ref[i];
@@ -57,32 +58,48 @@
           ref1 = proj[r].split(',');
           for (j = 0, len1 = ref1.length; j < len1; j++) {
             s = ref1[j];
-            slug = $(window).toSlug(s);
-            classes += ' ' + slug;
-            if (!(indexOf.call(allslugs, slug) >= 0)) {
-              allslugs.push(slug);
-              allterms.push({
-                label: s,
-                value: slug
-              });
+            if (s !== '') {
+              slug = $(window).toSlug(s);
+              classes += ' ' + slug;
+              keywords += s + ', ';
+              if (!(indexOf.call(allslugs, slug) >= 0)) {
+                allslugs.push(slug);
+                allterms.push({
+                  label: s,
+                  value: slug
+                });
+              }
             }
           }
         }
+        keywords = String(keywords).substring(0, String(keywords).length - 2);
         $row = $("<article class=\"" + classes + "\" />").appendTo($div);
-        $preview = $("<div class=\"project-preview\"><div class=\"left-arrow\"></div></div>");
         if (!$(window).isURL(proj.link)) {
           proj.link = '#';
         }
-        $title = $("<div class=\"project-title\"></div>").appendTo($row);
+        $title = $("<div class=\"project-title title\"></div>").appendTo($row);
         $("<a href='" + proj.link + "' target='_blank'>" + proj.title + "</a>").appendTo($title);
-        $("<p class=\"project-description\">" + proj.description + "</p>").appendTo($row);
+        $("<p class=\"project-description description\">" + proj.description + "</p>").appendTo($row);
+        $("<small class=\"keywords\">Tags: " + String(keywords) + "</small>").appendTo($row);
         if ($(window).isURL(proj.img)) {
-          $preview.appendTo($title);
-          $imgURL = proj.img.replace('https://drive.google.com/open?id=', 'https://drive.google.com/file/d/');
-          $imgURL = $imgURL.replace('&usp=drive_fs', '/preview');
-          return $img = $('<iframe src="' + $imgURL + '" width="360" height="220" border="0" allow="autoplay"></iframe>').appendTo($preview);
+          $title.data('thumb', proj.img);
+          return $title.on('mouseenter', function(e) {
+            var $img, $imgURL, $preview, $thumb;
+            $(this).unbind('mouseenter').unbind('mouseleave');
+            $thumb = $(this).data('thumb');
+            $preview = $("<div class=\"project-preview\"><div class=\"left-arrow\"></div></div>");
+            $preview.appendTo($(this));
+            if ($thumb.match('https://drive.google.com/')) {
+              $imgURL = $thumb.replace('https://drive.google.com/open?id=', 'https://drive.google.com/file/d/');
+              $imgURL = $imgURL.replace('&usp=drive_fs', '/preview');
+              return $img = $('<iframe src="' + $imgURL + '" width="360" height="220" border="0" allow="autoplay"></iframe>').appendTo($preview);
+            } else {
+              return $img = $("<img class='preview-thumb' src='" + $thumb + "' />").appendTo($preview);
+            }
+          });
         }
       });
+      allcats.sort();
       $.each(allcats.filter($(window).onlyUnique), function(x, val) {
         var $cat, slug;
         if (val !== '') {
@@ -97,7 +114,7 @@
           return $('.project-preview', $(this)).addClass('align-bottom');
         }
       });
-      return $("#tags").initSearchBox(allterms);
+      return $("#search-term").initSearchBox(allterms);
     });
   };
 
