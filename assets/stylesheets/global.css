@@ -15,24 +15,7 @@ h3 {
 }
 
 
-.button {
-  float: right;
-  font-family: "Asap Condensed"; 
-  font-weight: bold;
-  letter-spacing: .5px;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 10px;
-  margin-right: 8px;
-  color: white;
-  background: #53B2E5;
-  box-shadow:  -3px 3px 0 0 rgba(65,146,198,1);
-}
 
-.button:hover {
-  background: rgba(65,146,198,1);
-  box-shadow:  -3px 3px 0 0 #53B2E5;
-}
 
 .instructions {
   font-family: "Raleway";
@@ -54,17 +37,34 @@ h3 {
 
 /* Filters */
 
-#filters-wrapper {
-  margin-bottom: 20px;
+
+
+.button {
+  display: inline-block;
+  font-family: "Asap Condensed"; 
+  font-weight: bold;
+  letter-spacing: .5px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 12px;
+  color: white;
+  background: #53B2E5;
+  border: 0;
 }
 
-
-#tags {
-
-  font-size: 15px;
-  line-height: 1.7em;
-  padding: 0 3px;
+.button:hover {
+  background: rgba(65,146,198,1);
 }
+
+.shadowed-button {
+  margin-right: 8px;
+  box-shadow:  -3px 3px 0 0 rgba(65,146,198,1);
+}
+
+.shadowed-button:hover {
+  box-shadow:  -3px 3px 0 0 #53B2E5;
+}
+
 
 .ui-menu {
   background: rgba(255, 255, 255, 0.95);
@@ -89,12 +89,19 @@ h3 {
   display: none !important;
 }
 
-.filters-date-range label { 
+
+.filter-wrapper  label {
+  display: block;
+  font-family: "Raleway";
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .5px;
   line-height: 26px;
+  color: #98979B;
 }
 
-
-#event-search-filters input {
+.filter-wrapper input {
   padding: 0px 18px 0px 18px;
   font-family: "Raleway";
   font-size: 16px;
@@ -244,6 +251,7 @@ input:checked + .slider:before {
 }
 
 #view-toggle.button {
+  float: right;
   background: #a50a51;
   box-shadow:  -3px 3px 0 0 rgba(218,102,123,1);
 }
@@ -264,21 +272,12 @@ input:checked + .slider:before {
 #event-search-filters {
   position: relative;
   padding: 30px 0 15px;
-  font-size: 14px;
-  font-weight: bold;
 }
 
 #event-search-filters .filter-wrapper {
   display: inline-block;
 }
 
-#event-search-filters label {
-  display: block;
-  font-family: "Raleway";
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  color: #98979B;
-}
 
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 .select2-container {
@@ -348,6 +347,17 @@ input:checked + .slider:before {
 }
 
 /* A&M Tools */
+
+#am-filters-selections {
+  position: relative;
+  margin-bottom: 20px;
+  width: 25%;
+  float: right;
+}
+
+#am-projects-results {
+  width: 70%;
+}
 
 .project.term-wrapper {
   margin-bottom: 20px;

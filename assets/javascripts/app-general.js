@@ -109,6 +109,7 @@
       $target = $div.data('init');
       return $.getJSON('https://script.google.com/macros/s/' + $depId + '/exec', function(data) {
         var fn;
+        $(this).html('');
         fn = jQuery('selector')[$target];
         if (jQuery.isFunction(fn)) {
           return $div[$target](data.date);
