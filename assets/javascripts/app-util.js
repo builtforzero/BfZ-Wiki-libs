@@ -46,26 +46,36 @@
     $search.autocomplete({
       source: terms,
       response: function(event, ui) {
-        return $('#term-results').showTermsFromSearch(ui.content);
+        $('#term-results').showTermsFromSearch(ui.content);
+        return $('.no-result').hide();
       },
       select: function(event, ui) {
-        return $('#term-results').showTermsFromSearch([
+        $('#term-results').showTermsFromSearch([
           {
             value: $(window).toSlug(ui.item.label)
           }
         ]);
+        return $('.no-result').hide();
       }
     });
     $('#search-term').on('blur', function() {
       if ($(this).val() === '') {
         $('.project-cat').show();
-        return $('.term-wrapper').show();
+        $('.term-wrapper').show();
+        return $('.no-result').hide();
+      } else {
+        if ($('.term-wrapper:visible').length === 0) {
+          return $('.no-result').show();
+        } else {
+          return $('.no-result').hide();
+        }
       }
     });
     $('.tag-clear').on('click', function() {
       $search.autocomplete("search", "");
       $('.project-cat').show();
       $('.term-wrapper').show();
+      $('.no-result').hide();
       return $('#search-term').val('');
     });
     return $("#az-filter").initLetterSelector();
