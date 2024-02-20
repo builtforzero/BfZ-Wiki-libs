@@ -92,6 +92,7 @@
             if ($thumb.match('https://drive.google.com/')) {
               $imgURL = $thumb.replace('https://drive.google.com/open?id=', 'https://drive.google.com/file/d/');
               $imgURL = $imgURL.replace('&usp=drive_fs', '/preview');
+              $imgURL = $imgURL.replace('/view?usp=drive_link', '/preview');
               return $img = $('<iframe src="' + $imgURL + '" width="360" height="220" border="0" allow="autoplay"></iframe>').appendTo($preview);
             } else {
               return $img = $("<img class='preview-thumb' src='" + $thumb + "' />").appendTo($preview);
