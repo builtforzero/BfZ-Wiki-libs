@@ -1,8 +1,6 @@
 (function() {
-  var $, $body, terms,
+  var $body, terms,
     indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-  $ = jQuery;
 
   $body = $("body");
 
@@ -116,23 +114,6 @@
         }
       });
       return $("#search-term").initSearchBox(allterms);
-    });
-  };
-
-  $.fn.loadContent = function() {
-    return this.each(function() {
-      var $depId, $div, $target;
-      $div = $(this);
-      $depId = $div.data('key');
-      $target = $div.data('init');
-      return $.getJSON('https://script.google.com/macros/s/' + $depId + '/exec', function(data) {
-        var fn;
-        $div.html('<div class="no-result" style="display: none">No results</div>');
-        fn = jQuery('selector')[$target];
-        if (jQuery.isFunction(fn)) {
-          return $div[$target](data.date);
-        }
-      });
     });
   };
 

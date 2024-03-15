@@ -104,4 +104,33 @@
     });
   };
 
+  $.fn.loadContent = function(div) {
+    if (div == null) {
+      div = null;
+    }
+    return this.each(function() {
+      var $content, $depId, $div, $target;
+      $div = $(this);
+      $content = $div;
+      if (div !== null) {
+        $content = div;
+      }
+      $depId = $div.data('key');
+      $target = $div.data('init');
+      $content.html('<span class="loading">Loading content&hellip;</span>');
+      return $.getJSON('https://script.google.com/macros/s/' + $depId + '/exec', function(data) {
+        var fn;
+        $content.html('');
+        fn = jQuery('selector')[$target];
+        if (jQuery.isFunction(fn)) {
+          return $content[$target](data.date);
+        } else {
+          return $content.html('<div class="no-result">Sorry! I encountered an error</div>');
+        }
+      }).fail(function() {
+        return $content.html('<div class="no-result">Sorry! I encountered an error</div>');
+      });
+    });
+  };
+
 }).call(this);

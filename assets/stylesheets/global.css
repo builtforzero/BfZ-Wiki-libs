@@ -17,7 +17,7 @@ h3 {
 .bfz-table th {
   background: #a50a51;
   color: white;
-  font-size: 12px;
+  font-size: 13px;
   padding: 3px;
 }
 
@@ -30,9 +30,9 @@ h3 {
 }
 
 .bfz-table td {
-  font-size: 12px;
+  font-size: 13px;
   padding: 6px;
-  
+
 }
 
 .instructions {
@@ -713,5 +713,27 @@ h3.event-listing-title {
 .event-listing-copy .label {
   color: #98979B;
   padding-right: 5px;
+}
+
+
+.dashboard-wrapper {
+  position: relative;
+  width: 1024px;
+}
+
+.dashboard-wrapper .tutorial {
+  position: absolute;
+  top: 39px;
+  left: 2px;
+}
+
+.dashboard-wrapper .tutorial video {
+  width: 1024px;
+  height: 746px;
+}
+
+.dashboard-wrapper .show-tutorial {
+  position: relative;
+  margin-left: 20px;
 }
 

@@ -1,7 +1,5 @@
 (function() {
-  var $, $body, addEventInCorrectOrder, enableRelevantFilterOptions, end_date, formatCalEvent, resetFilterOptions, showAllEventDates, substituteDate, updateCalEventTopPosition, updateDateFields, view;
-
-  $ = jQuery;
+  var $body, addEventInCorrectOrder, enableRelevantFilterOptions, end_date, formatCalEvent, resetFilterOptions, showAllEventDates, substituteDate, updateCalEventTopPosition, updateDateFields, view;
 
   $body = $("body");
 
@@ -58,6 +56,7 @@
     window.CS_events = data;
     return this.each(function() {
       var $CS_filters, $classes;
+      window.event_list = $(this);
       $('#date-start').val($(window).formatDate(window.first_date));
       window.first_date.setDate(1);
       window.start_date = window.first_date;
@@ -128,7 +127,7 @@
       window.first_date.setDate(1);
       $.each(window.CS_events_sorted, function(index, CS_event) {
         var $dateDiv, $details, $link, $row, i, len, link, ref;
-        $row = $("<article data-start=\"" + CS_event.start_datetime + "\" data-end=\"" + CS_event.end_datetime + "\" class=\"" + CS_event.classes + "\" />").appendTo($('#event-list-view'));
+        $row = $("<article data-start=\"" + CS_event.start_datetime + "\" data-end=\"" + CS_event.end_datetime + "\" class=\"" + CS_event.classes + "\" />").appendTo(window.event_list);
         $row.data();
         $dateDiv = $("<div class=\"event-listing-date\"></div>").appendTo($row);
         $("<time class=\"event-start\" datetime=\"" + CS_event.start + "\">" + CS_event.start_label + "</time>").appendTo($dateDiv);
@@ -463,7 +462,7 @@
     this.each(function() {
       return $(this).show().addClass('show');
     });
-    return $(window.selected, $('#event-list-view')).filterEventByDate();
+    return $(window.selected, window.event_list).filterEventByDate();
   };
 
   $.fn.filterEventByDate = function() {
@@ -544,18 +543,20 @@
       $('.list', $(this)).show();
       $('.cal', $(this)).hide();
       $(this).addClass('calendar');
-      $('.event-list-view').show();
+      $(window.event_list).show();
       $('.event-cal-view').hide();
       view = 'list';
       return showAllEventDates();
     } else {
       $('.list', $(this)).hide();
       $('.cal', $(this)).show();
-      $('.event-list-view').hide();
+      $(window.event_list).hide();
       $('.event-cal-view').show();
       $(this).removeClass('calendar');
       return view = 'cal';
     }
   });
+
+  $('.load-from-sheets').loadContent($('#event-list-view'));
 
 }).call(this);
