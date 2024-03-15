@@ -34,11 +34,30 @@
       return $('.show-tutorial').on('click', function() {
         $('.show-tutorial').attr('disabled', 'disabled');
         $('.tutorial').show();
-        document.getElementById("tutorial-video").play();
+        document.getElementById("tutorial-video").pause();
+        $('.step-1').fadeIn();
+        $('.step-2').fadeIn();
         return setTimeout(function() {
-          $('.tutorial').hide();
-          return $('.show-tutorial').removeAttr('disabled');
-        }, 17000);
+          $('.step-1').hide();
+          $('.step-2').hide();
+          document.getElementById("tutorial-video").play();
+          return setTimeout(function() {
+            document.getElementById("tutorial-video").pause();
+            setTimeout(function() {
+              document.getElementById("tutorial-video").play();
+              $('.step-3').fadeOut();
+              $('.step-4').fadeOut();
+              $('.step-5').fadeIn();
+              return setTimeout(function() {
+                $('.step-5').hide();
+                $('.tutorial').hide();
+                return $('.show-tutorial').removeAttr('disabled');
+              }, 2500);
+            }, 8000);
+            $('.step-3').fadeIn();
+            return $('.step-4').fadeIn();
+          }, 9000);
+        }, 3000);
       });
     });
   };
