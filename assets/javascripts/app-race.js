@@ -38,7 +38,7 @@
         return setTimeout(function() {
           $('.tutorial').hide();
           return $('.show-tutorial').removeAttr('disabled');
-        }, 25000);
+        }, 17000);
       });
     });
   };
