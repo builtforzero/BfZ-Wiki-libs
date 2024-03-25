@@ -1,7 +1,9 @@
 (function() {
-  var $body;
+  var $body, $vidStage;
 
   $body = $("body");
+
+  $vidStage = 'none';
 
   $.fn.initRaceContent = function(data) {
     return this.each(function() {
@@ -32,32 +34,28 @@
     return this.each(function() {
       $('.tutorial').hide();
       return $('.show-tutorial').on('click', function() {
-        $('.show-tutorial').attr('disabled', 'disabled');
+        var vid;
         $('.tutorial').show();
-        document.getElementById("tutorial-video").pause();
-        $('.step-1').fadeIn();
-        $('.step-2').fadeIn();
-        return setTimeout(function() {
-          $('.step-1').hide();
-          $('.step-2').hide();
-          document.getElementById("tutorial-video").play();
-          return setTimeout(function() {
-            document.getElementById("tutorial-video").pause();
-            setTimeout(function() {
-              document.getElementById("tutorial-video").play();
-              $('.step-3').fadeOut();
-              $('.step-4').fadeOut();
-              $('.step-5').fadeIn();
-              return setTimeout(function() {
-                $('.step-5').hide();
-                $('.tutorial').hide();
-                return $('.show-tutorial').removeAttr('disabled');
-              }, 2500);
-            }, 8000);
-            $('.step-3').fadeIn();
-            return $('.step-4').fadeIn();
-          }, 9000);
-        }, 3000);
+        vid = document.getElementById("tutorial-video");
+        vid.muted = false;
+        if (window.$vidStage === 'playing') {
+          window.$vidStage = 'paused';
+          vid.pause();
+          $('.show-tutorial').text('Play Video');
+        } else {
+          window.$vidStage = 'playing';
+          $('.show-tutorial').text('Pause Video');
+          vid.play();
+        }
+        return vid.addEventListener("ended", function() {
+          window.$vidStage = 'none';
+          vid.muted = true;
+          vid.pause();
+          $('.tutorial').hide();
+          $('.show-tutorial').text('Play Video');
+          $('.show-tutorial').removeAttr('disabled');
+          return console.log('end');
+        });
       });
     });
   };
